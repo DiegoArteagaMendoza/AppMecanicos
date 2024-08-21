@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - 7000:5000
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=src
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=5000

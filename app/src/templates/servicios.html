@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card-container">
+        <!-- {% set contador = 1 %} -->
+        {% if contador == 1 %}
+            {% for servicio in servicios %}
+                <div class="card">
+                    <h2 class="card-title">{{ servicio.name }}</h2>
+                    <p class="card-description">{{ servicio.descripcion }}</p>
+                    <div class="card-footer">
+                        <span class="card-time">{{ servicio.tiempo }} semana(s)</span>
+                        <span class="card-value">${{ servicio.valor }}</span>
+                    </div>
+                    {% for imagen in imagenes %}
+                        {% if imagen.id == servicio.id %}
+                            <img src="{{ url_for('static', filename='uploads/' + imagen.img) }}" alt="Imagen del servicio" class="card-image">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            <!-- {% if contador == 1 %}
+                {% set contador = 0 %}
+            {% endif %} -->
+            {% endfor %}    
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Formulario para la adicion de clientes -->
+
+<h4 class="tituloform">Ingresar Cliente</h4>
+
+<div class="form-container">
+    <form action="/addTrabajo" method="post" class="formularioCliente">
+        <!-- Primera columna -->
+        <div class="columna1">
+            <div class="campo">
+                <label for="name" class="nombreCliente">Nombre</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+    
+            <div class="campo">
+                <label for="rut" class="rutCliente">Rut</label>
+                <input type="text" name="rut" id="phone" placeholder="sin puntos y con guion" required>
+            </div>
+
+            <div class="campo">
+                <label for="phone" class="telefonoCliente">Teléfono</label>
+                <input type="number" name="phone" id="phone" placeholder="+56" required>
+            </div>
+    
+            <div class="campo">
+                <label for="email" class="correoCliente">Correo</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+    
+            <div class="campo">
+                <label for="date" class="fechaIngreso">Fecha</label>
+                <input type="date" name="date" id="date" required>
+            </div>
+
+            <div class="campo">
+                <label for="tipo" class="vehiculoCliente">Tipo de vehículo</label>
+                <select name="tipo" id="tipo" required>
+                    <option value="auto">Auto</option>
+                    <option value="moto">Moto</option>
+                </select>
+            </div>
+        </div>
+    
+        <!-- Segunda columna -->
+        <div class="columna2">
+            <div class="campo">
+                <label for="marca" class="marcaVehiculo">Marca</label>
+                <input type="text" name="marca" id="marca" required>
+            </div>
+
+            <div class="campo">
+                <label for="patente" class="patente">Patente</label>
+                <input type="text" name="patente" id="patente" required>
+            </div>
+
+            <div class="campo">
+                <label for="modelo" class="modeloVehiculo">Modelo</label>
+                <input type="text" name="modelo" id="modelo" required>
+            </div>
+    
+            <div class="campo">
+                <label for="OpcionesTrabajo" class="tipoTrabajo">Trabajo</label>
+                <select name="OpcionesTrabajo" id="OpcionesTrabajo" required>
+                    {% for servicio in servicios %}
+                        <option value="{{ servicio.name }}">{{ servicio.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+            <div class="campo">
+                <label for="motivo" class="motivoTrabajo">Detalle</label>
+                <textarea name="motivo" id="motivo" required></textarea>
+            </div>
+        </div>
+    
+        <button type="submit" class="botonIngreso">Ingresar Cliente</button>
+    </form>
+    
+</div>
+
+{% endblock %}

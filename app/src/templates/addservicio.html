@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Formulario para la adición de servicios -->
+
+<h4 class="tituloform">Ingresar servicio</h4>
+
+<div class="form-container">
+    <form action="/addServicio" method="post" enctype="multipart/form-data" class="formularioCliente">
+        <div class="columna1">
+            <div class="campo">
+                <label for="name" class="nombreCliente">Nombre servicio</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+
+            <div class="campo">
+                <label for="descripcion" class="motivoTrabajo">Descripción del servicio</label>
+                <textarea name="descripcion" id="descripcion" required></textarea>
+            </div>
+
+            <div class="campo">
+                <label for="tiempo" class="nombreCliente">Tiempo del servicio</label>
+                <input type="text" name="tiempo" id="tiempo" placeholder="Semana(s)/Dia(s)" required>
+            </div>
+
+            <div class="campo">
+                <label for="valor" class="nombreCliente">Valor Servicio</label>
+                <input type="text   " name="valor" id="valor" placeholder="$" required>
+            </div>
+
+            <div class="campo">
+                <label for="img" class="nombreCliente">Imagen descriptiva</label>
+                <input type="file" name="img" id="img" required>
+            </div>
+
+            <button type="submit" class="botonIngreso">Ingresar Servicio</button>
+        </div>
+
+        <div class="columna2">
+            <div class="campo">
+                <img src="../static/images/mecanico.jpg" alt="foto mecanico">
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

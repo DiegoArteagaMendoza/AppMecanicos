@@ -1,0 +1,363 @@
+/* estilo body */
+
+/* Estilo general para el body */
+    /* Fondo de la página con gradiente suave */
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ff7f7f, #d17b8d, #6a1b9a);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh; /* Asegura que el body ocupa al menos el alto de la vista */
+        /* overflow: hidden; Oculta cualquier desbordamiento para evitar barras de desplazamiento */
+    }
+
+    /* Estilo para el contenedor del formulario */
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Estilo para el formulario específico */
+    .formularioCliente {
+        width: 80%;
+        max-width: auto; /* Establece un ancho máximo para el formulario */
+        margin: 0 auto; /* Centra el formulario horizontalmente */
+    }
+
+
+/* Nav bar style */
+
+    /* Estilo general para la navbar */
+    .navbar {
+        display: flex;
+        justify-content: left; /* Distribuye los elementos de manera uniforme */
+        align-items: center;
+        background-color: #ffffff; /* Fondo blanco para mantener la consistencia con el formulario */
+        padding: 10px 20px; /* Añade un poco de espacio interno */
+        gap: 20px; /* Espacio entre los enlaces de la navbar */
+        /* border-radius: 10px; Bordes redondeados */
+        /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); Sombra suave para un efecto flotante */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    }
+
+    /* Estilo para los enlaces de la navbar */
+    .navbar a {
+        text-decoration: none;
+        color: #4a1f4d; /* Color morado oscuro para mantener la paleta de colores */
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 1); /* Fondo semitransparente */
+        border: 1px solid #d17b8d; /* Borde en rosa claro para la consistencia con el formulario */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Estilo para el logo dentro de la navbar */
+    .logonav {
+        display: flex;
+        align-items: center; /* Alinea verticalmente el logo */
+    }
+
+    /* Estilo para el hover en los enlaces de la navbar */
+    .navbar a:hover {
+        background-color: #f4f4f4; /* Fondo en gris claro al pasar el mouse */
+        color: #000; /* Texto en negro al pasar el mouse */
+    }
+
+
+    /* Estilo para el logo dentro de la navbar */
+    .logonav {
+        display: flex;
+        align-items: center; /* Alinea verticalmente el logo */
+    }
+
+    /* Estilo para el contenedor del logo */
+    .logo {
+        display: flex;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        font-size: 24px;
+        color: #4a1f4d; /* Color morado oscuro */
+    }
+
+    /* Estilo para las letras del logo */
+    .letter {
+        display: inline-block;
+        position: relative;
+        padding: 0 0px;
+    }
+
+    /* Letra M */
+    .m {
+        background: linear-gradient(to bottom right, #d17b8d, #ff7f7f); /* Gradiente de rosa a rojo */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Letra C */
+    .c {
+        background: linear-gradient(to bottom right, #ff7f7f, #d17b8d); /* Gradiente de rojo a rosa */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Estilo para el hover en los enlaces de la navbar */
+    .navbar a:hover {
+        background-color: #f4f4f4; /* Fondo en gris claro al pasar el mouse */
+        color: #000; /* Texto en negro al pasar el mouse */
+    }
+
+
+/* Formulario de ingreso de cliente */
+
+    .tituloform {
+        color: #4a1f4d;
+        font-size: x-large;
+        margin-bottom: 0;
+    }
+
+    /* Estilo general para el formulario */
+    .formularioCliente {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+        gap: 20px; /* Espacio entre columnas */
+        width: 80%;
+        max-width: 800px; /* Establece un ancho máximo para el formulario */
+        margin: 0 auto; /* Centra el formulario horizontalmente */
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffffff; /* Fondo blanco para el formulario */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilo para los contenedores de campo */
+    .campo {
+        width: 80%;
+        margin-bottom: 10px; /* Espacio entre cada campo */
+    }
+
+    /* Estilo para las etiquetas en la primera columna */
+    .formularioCliente .columna1 label {
+        font-weight: bold;
+        color: #4a1f4d; /* Color morado oscuro */
+        margin-bottom: 5px;
+        display: block; /* Asegura que las etiquetas ocupen toda la línea */
+    }
+
+    /* Estilo para las entradas de texto en la primera columna */
+    .formularioCliente .columna1 input[type="text"],
+    .formularioCliente .columna1 input[type="number"],
+    .formularioCliente .columna1 input[type="email"],
+    .formularioCliente .columna1 input[type="date"],
+    .formularioCliente .columna1 select,
+    .formularioCliente .columna1 textarea {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fef5f5; /* Fondo muy suave en rosa pálido */
+        border: 1px solid #d17b8d; /* Borde en rosa claro */
+        color: #333; /* Texto en color gris oscuro para buena legibilidad */
+        transition: border-color 0.3s ease-in-out;
+        width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
+    }
+
+    /* Estilo para cambiar el borde al enfocar en la primera columna */
+    .formularioCliente .columna1 input[type="text"]:focus,
+    .formularioCliente .columna1 input[type="number"]:focus,
+    .formularioCliente .columna1 input[type="email"]:focus,
+    .formularioCliente .columna1 input[type="date"]:focus,
+    .formularioCliente .columna1 select:focus,
+    .formularioCliente .columna1 textarea:focus {
+        border-color: #ff7f7f; /* Borde en rojo suave al enfocar */
+    }
+
+    /* Estilo para las etiquetas en la segunda columna */
+    .formularioCliente .columna2 label {
+        font-weight: bold;
+        color: #4a1f4d; /* Color morado oscuro */
+        margin-bottom: 5px;
+        display: block; /* Asegura que las etiquetas ocupen toda la línea */
+    }
+
+    /* Estilo para las entradas de texto en la segunda columna */
+    .formularioCliente .columna2 input[type="text"],
+    .formularioCliente .columna2 input[type="number"],
+    .formularioCliente .columna2 input[type="email"],
+    .formularioCliente .columna2 input[type="date"],
+    .formularioCliente .columna2 select,
+    .formularioCliente .columna2 textarea
+    .formularioCliente .columna2 img {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fef5f5; /* Fondo muy suave en rosa pálido */
+        border: 1px solid #d17b8d; /* Borde en rosa claro */
+        color: #333; /* Texto en color gris oscuro para buena legibilidad */
+        transition: border-color 0.3s ease-in-out;
+        width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
+    }
+
+    /* Estilo para cambiar el borde al enfocar en la segunda columna */
+    .formularioCliente .columna2 input[type="text"]:focus,
+    .formularioCliente .columna2 input[type="number"]:focus,
+    .formularioCliente .columna2 input[type="email"]:focus,
+    .formularioCliente .columna2 input[type="date"]:focus,
+    .formularioCliente .columna2 select:focus,
+    .formularioCliente .columna2 textarea:focus {
+        border-color: #ff7f7f; /* Borde en rojo suave al enfocar */
+    }
+
+    /* Estilo para el botón */
+    .botonIngreso {
+        grid-column: span 2; /* Ocupa las dos columnas */
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #d17b8d; /* Fondo en rosa suave */
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .botonIngreso:hover {
+        background-color: #ff7f7f; /* Fondo en rojo suave al pasar el mouse */
+    }
+
+/* Estilo para la tabla clientes */
+
+    /* Estilo general para la tabla */
+    .table {
+        width: 100%; /* Utiliza todo el ancho disponible */
+        border-collapse: collapse; /* Asegura que los bordes de las celdas se fusionen */
+        margin: 20px 0; /* Espacio vertical arriba y abajo de la tabla */
+        border-radius: 10px; /* Bordes redondeados */
+        overflow: hidden; /* Oculta el desbordamiento para bordes redondeados */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    /* Estilo para los encabezados de la tabla */
+    .table thead {
+        background-color: #4a1f4d; /* Color morado oscuro para los encabezados */
+        color: #fff; /* Texto blanco para contraste */
+    }
+
+    .table th {
+        padding: 10px 15px; /* Espacio interno en los encabezados */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    /* Estilo para el cuerpo de la tabla */
+    .table tbody tr {
+        background-color: #fef5f5; /* Fondo muy suave en rosa pálido */
+    }
+
+    .table tbody td {
+        padding: 10px 15px; /* Espacio interno en las celdas */
+        border: 1px solid #d17b8d; /* Borde en rosa claro */
+        color: #fff; /* Texto en gris oscuro para buena legibilidad */
+    }
+
+    /* Estilo para las filas pares del cuerpo de la tabla */
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9; /* Fondo en gris claro para filas pares */
+    }
+
+    /* Estilo para el hover en las filas de la tabla */
+    .table tbody tr:hover {
+        background-color: #f1f1f1; /* Fondo en gris más oscuro al pasar el mouse */
+    }
+
+    /* Estilo para los botones en la tabla */
+    .btn-primary {
+        padding: 8px 12px; /* Espacio interno en el botón */
+        border: none;
+        border-radius: 5px;
+        background-color: #d17b8d; /* Fondo en rosa suave */
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Estilo para el hover en los botones */
+    .btn-primary:hover {
+        background-color: #ff7f7f; /* Fondo en rojo suave al pasar el mouse */
+    }
+
+/* Modal */
+
+    .modal-body .table th,
+    .modal-body .table td strong {
+        color: #4a1f4d; /* Color morado oscuro */
+    }
+
+    .modal-body .table {
+        color: #333; /* Color gris oscuro para el texto general */
+    }
+
+
+/* Estilos para las tarjetas de servicios */
+
+    /* Estilo para el contenedor principal */
+    .container {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Estilo para el contenedor de las tarjetas */
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+        gap: 20px; /* Espacio entre las tarjetas */
+        width: 100%;
+        max-width: 1200px; /* Ancho máximo para el contenedor */
+    }
+
+    /* Estilo para cada tarjeta */
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        background-color: #f8f9fa;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0; /* Elimina el margen para la grilla */
+    }
+
+    .card-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .card-description {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .card-time, .card-value {
+        font-size: 0.9em;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+

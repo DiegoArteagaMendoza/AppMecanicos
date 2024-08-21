@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Contenedor principal -->
+<div class="container">
+    <div class="table-container">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Vehículo</th>
+                    <th>Trabajo</th>
+                    <th>Valor</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.phone }}</td>
+                    {% for vehiculo in vehiculos %}
+                        {% if client.id == vehiculo.id %}
+                            <td>{{ vehiculo.type }}</td>
+                            <td>{{ vehiculo.OpcionesTrabajo }}</td>
+                            {% for servicio in servicios %}
+                                {% if servicio.name == vehiculo.OpcionesTrabajo %}
+                                <td>{{ servicio.valor }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    <td><button type="button" class="btn-primary" data-toggle="modal" data-target="#detailModal" data-client='{{ client|tojson }}' data-vehiculos='{{ vehiculos|tojson }}' data-servicio='{{ servicios|tojson }}'>Ver detalle</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="detail-container">
+        <!-- Aquí se llenará el detalle del cliente -->
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- Aquí se llenará el detalle del cliente -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

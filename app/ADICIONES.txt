@@ -1,0 +1,8 @@
+Separar clientes de ingreso de vehiculo, porque un cliente puede tener muchos ingresos
+Cuando se ingresa un vehiculo debe indicarse si es un cliente registrado o nuevo (pantalla con 2 botones CN CE)
+
+
+CLIENTES -> TRABAJOS
+ADDCLIENTE -> ADDTRABAJO
+
+ADDTRABAJO => INCLUYE VENTANA QUE PERMITE ESCOGER SI ES CLIENTE NUEVO O EXISTENTE, SI ES NUEVO SE AGREGA EL CLIENTE Y EL VEHICULO CORRESPONDIENTE, SI ES CLIENTE EXISTENTE SE BUSCA EL CLIENTE POR RUT Y SE AGREGA EL VEHICULO ASOCIADO AL ID DEL CLIENTE.
