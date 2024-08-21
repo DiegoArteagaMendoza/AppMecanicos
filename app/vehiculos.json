@@ -1,11 +1,22 @@
 [
     {
         "type": "auto",
-        "marca": "Subaru",
-        "patente": "PTCL23",
-        "modelo": "Impreza",
+        "marca": "toyota",
+        "patente": "123412",
+        "modelo": "citroen",
         "OpcionesTrabajo": "Mantencion completa",
-        "motivo": "Revisi\u00f3n del veh\u00edculo",
-        "id": 0.4186328752582459
+        "motivo": "mantencion completa",
+        "idCliente": 0.590520280606274,
+        "idTrabajo": 0.20415100697962496
+    },
+    {
+        "type": "auto",
+        "marca": "subaru",
+        "patente": "123489",
+        "modelo": "impreza",
+        "OpcionesTrabajo": "Mantencion completa",
+        "motivo": "mantencion 123",
+        "idCliente": "0.590520280606274",
+        "idTrabajo": 0.11718733403633963
     }
 ]

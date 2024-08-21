@@ -4,7 +4,17 @@
         "rut": "21069910-4",
         "phone": "+56949754695",
         "email": "daarteagamendoza@gmail.com",
-        "date": "2024-08-19",
-        "id": 0.4186328752582459
+        "date": "2024-08-21",
+        "idCliente": 0.590520280606274,
+        "idTrabajo": 0.20415100697962496
+    },
+    {
+        "name": "Diego",
+        "rut": "21069910-4",
+        "phone": "+56949754695",
+        "email": "daarteagamendoza@gmail.com",
+        "date": "2024-08-21",
+        "idCliente": "0.590520280606274",
+        "idTrabajo": 0.11718733403633963
     }
 ]

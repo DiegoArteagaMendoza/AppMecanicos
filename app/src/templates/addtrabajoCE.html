@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4 class="tituloform">Ingresar Trabajo</h4>
+
+<div class="form-container">
+    <!-- Formulario para buscar cliente por RUT -->
+    <form method="POST" action="{{ url_for('formAddTrabajoCE') }}" class="formularioCliente">
+        <div class="campo">
+            <label for="rut" class="rutCliente">Rut</label>
+            <input type="text" name="rut" id="rut" placeholder="sin puntos y con guion" required>
+        </div>
+        <button type="submit">Buscar cliente</button>
+    </form>
+</div>
+
+<div class="form-container">
+       <!-- Formulario para mostrar y editar datos del cliente -->
+       {% if rut %}
+       {% for cliente in clients %}
+           {% if cliente.rut == rut %}
+               <form action="/addTrabajoCE" method="post" class="formularioCliente">
+                   <div class="columna1">
+                       <div class="campo">
+                           <label for="name" class="nombreCliente">Nombre</label>
+                           <input type="text" name="name" id="name" value="{{ cliente.name }}" required>
+                       </div>
+
+                        <div class="campo">
+                            <label for="rut" class="rutCliente">Rut</label>
+                            <input type="text" name="rut" id="phone" value="{{ cliente.rut }}" required>
+                        </div>
+
+                       <div class="campo">
+                           <label for="phone" class="telefonoCliente">Teléfono</label>
+                           <input type="text" name="phone" id="phone" value="{{ cliente.phone }}" required>
+                       </div>
+
+                       <div class="campo">
+                           <label for="email" class="correoCliente">Correo</label>
+                           <input type="email" name="email" id="email" value="{{ cliente.email }}" required>
+                       </div>
+
+                        <div class="campo">
+                            <label for="id" class="correoCliente">Id Cliente</label>
+                            <input type="id" name="id" id="id" value="{{ cliente.idCliente }}" required>
+                        </div>
+                       
+                       <div class="campo">
+                           <label for="date" class="fechaIngreso">Fecha</label>
+                           <input type="date" name="date" id="date" required>
+                       </div>
+                   </div>
+
+                   <div class="columna2">
+
+                        <div class="campo">
+                            <label for="tipo" class="vehiculoCliente">Tipo de vehículo</label>
+                            <select name="tipo" id="tipo">
+                                <option value="auto">Auto</option>
+                                <option value="moto">Moto</option>
+                            </select>
+                        </div>
+
+                       <div class="campo">
+                           <label for="marca" class="marcaVehiculo">Marca</label>
+                           <input type="text" name="marca" id="marca" required>
+                       </div>
+
+                       <div class="campo">
+                           <label for="patente" class="patente">Patente</label>
+                           <input type="text" name="patente" id="patente" required>
+                       </div>
+
+                       <div class="campo">
+                           <label for="modelo" class="modeloVehiculo">Modelo</label>
+                           <input type="text" name="modelo" id="modelo" required>
+                       </div>
+               
+                       <div class="campo">
+                           <label for="OpcionesTrabajo" class="tipoTrabajo">Trabajo</label>
+                           <select name="OpcionesTrabajo" id="OpcionesTrabajo" required>
+                               {% for servicio in servicios %}
+                                   <option value="{{ servicio.name }}">{{ servicio.name }}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+               
+                       <div class="campo">
+                           <label for="motivo" class="motivoTrabajo">Detalle</label>
+                           <textarea name="motivo" id="motivo" required></textarea>
+                       </div>
+
+                   </div>
+
+                   <button type="submit" class="botonIngreso">Ingresar Trabajo</button>
+               </form>
+           {% endif %}
+       {% endfor %}
+   {% endif %}
+</div>
+
+{% endblock %}

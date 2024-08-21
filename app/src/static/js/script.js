@@ -39,7 +39,7 @@ $('#detailModal').on('show.bs.modal', function (event) {
                     <td style="color: #000;">Fecha de ingreso:</td>
                     <td style="color: #000;">${client.date}</td>
                 </tr>
-                ${(vehiculo && vehiculo.length > 0) ? vehiculo.filter(v => v.id === client.id).map(vehiculo => `
+                ${(vehiculo && vehiculo.length > 0) ? vehiculo.filter(v => v.idTrabajo === client.idTrabajo).map(vehiculo => `
                     <tr>
                         <td style="color: #000;">Tipo de vehiculo:</td>
                         <td style="color: #000;">${vehiculo.type}</td>
