@@ -6,5 +6,21 @@
         "email": "daarteagamendoza@gmail.com",
         "date": "2024-08-19",
         "id": 0.4186328752582459
+    },
+    {
+        "name": "Loreto",
+        "rut": "9569807-7",
+        "phone": "12341234",
+        "email": "beli@1234.cl",
+        "date": "2024-08-21",
+        "id": 0.6276782031715997
+    },
+    {
+        "name": "Diego",
+        "rut": "21069910-4",
+        "phone": "+56949754695",
+        "email": "daarteagamendoza@gmail.com",
+        "date": "2024-08-21",
+        "id": 0.6898749653926617
     }
 ]

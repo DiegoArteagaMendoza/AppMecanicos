@@ -1,0 +1,7 @@
+{
+    "workbench.activityBar.location": "top",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "right",
+    "explorer.autoReveal": true,
+    "terminal.explorerKind": "external"
+}

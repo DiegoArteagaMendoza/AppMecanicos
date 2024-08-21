@@ -19,9 +19,52 @@ def init_routes(app):
         return render_template("trabajos.html", clients=clients, vehiculos=vehiculos, servicios = servicios)
 
     @app.route('/AgregarTrabajo')
+    def agregarTrabajo():
+        return render_template("addtrabajoButtons.html")
+
+    @app.route('/ClienteExistente/AgergarTrabajo', methods=['GET', 'POST'])
+    def formAddTrabajoCE():
+        clients, _, servicios, _ = cargar_datos()
+        rut = None
+        
+        if request.method == 'POST':
+            rut = request.form.get('rut')
+            return render_template("addtrabajoCE.html", clients=clients, servicios=servicios, rut=rut)
+        
+        if request.method == 'GET':
+            return render_template("addtrabajoCE.html", clients=clients, servicios=servicios, rut=rut)
+
+
+    
+    @app.route('/ClienteNuevo/AgregarTrabajo')
     def formAddTrabajo():
         _, _, servicios, _ = cargar_datos()
         return render_template("addtrabajo.html", servicios = servicios)
+
+    @app.route('/addTrabajo', methods=['POST'])
+    def addTrabajoCE():
+        id_cliente = random.random()
+        client = {
+            "name": request.form['name'],
+            "rut": request.form['rut'],
+            "phone": request.form['phone'],
+            "email": request.form['email'],
+            "date": request.form['date'],
+            "id": id_cliente
+        }
+
+        vehiculo = {
+            "type": request.form['tipo'],
+            "marca": request.form['marca'],
+            "patente": request.form['patente'],
+            "modelo": request.form['modelo'],
+            "OpcionesTrabajo": request.form['OpcionesTrabajo'],
+            "motivo": request.form['motivo'],
+            "id": id_cliente
+        }
+
+        guardar_datos_cliente_vehiculo(client, vehiculo)
+        return redirect(url_for('trabajos'))
 
     @app.route('/addTrabajo', methods=['POST'])
     def addTrabajo():

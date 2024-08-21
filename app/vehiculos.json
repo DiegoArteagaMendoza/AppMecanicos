@@ -7,5 +7,23 @@
         "OpcionesTrabajo": "Mantencion completa",
         "motivo": "Revisi\u00f3n del veh\u00edculo",
         "id": 0.4186328752582459
+    },
+    {
+        "type": "auto",
+        "marca": "toyota",
+        "patente": "123456",
+        "modelo": "supra",
+        "OpcionesTrabajo": "Cambio de aceite",
+        "motivo": "Cambio de aceite",
+        "id": 0.6276782031715997
+    },
+    {
+        "type": "auto",
+        "marca": "toyota",
+        "patente": "12345678",
+        "modelo": "supra",
+        "OpcionesTrabajo": "Cambio de neumatico",
+        "motivo": "rueda derecha",
+        "id": 0.6898749653926617
     }
 ]
