@@ -18,7 +18,7 @@
 <div class="form-container">
        <!-- Formulario para mostrar y editar datos del cliente -->
        {% if rut %}
-       {% for cliente in clients %}
+       {% for cliente in clientsUnico %}
            {% if cliente.rut == rut %}
                <form action="/addTrabajoCE" method="post" class="formularioCliente">
                    <div class="columna1">

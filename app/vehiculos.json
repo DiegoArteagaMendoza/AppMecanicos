@@ -3,20 +3,10 @@
         "type": "auto",
         "marca": "toyota",
         "patente": "123412",
-        "modelo": "citroen",
+        "modelo": "supra",
         "OpcionesTrabajo": "Mantencion completa",
-        "motivo": "mantencion completa",
-        "idCliente": 0.590520280606274,
-        "idTrabajo": 0.20415100697962496
-    },
-    {
-        "type": "auto",
-        "marca": "subaru",
-        "patente": "123489",
-        "modelo": "impreza",
-        "OpcionesTrabajo": "Mantencion completa",
-        "motivo": "mantencion 123",
-        "idCliente": "0.590520280606274",
-        "idTrabajo": 0.11718733403633963
+        "motivo": "Mantencion",
+        "idCliente": 0.8144609617902545,
+        "idTrabajo": 0.05611034074921595
     }
 ]

@@ -27,7 +27,7 @@
                             <td>{{ vehiculo.OpcionesTrabajo }}</td>
                             {% for servicio in servicios %}
                                 {% if servicio.name == vehiculo.OpcionesTrabajo %}
-                                <td>{{ servicio.valor }}</td>
+                                <td>${{ servicio.valor }}</td>
                                 {% endif %}
                             {% endfor %}
                         {% endif %}

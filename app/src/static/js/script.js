@@ -66,3 +66,18 @@ $('#detailModal').on('show.bs.modal', function (event) {
         </table>
     `);
 });
+
+
+
+document.getElementById('valor').addEventListener('input', function (e) {
+    let value = e.target.value;
+
+    // Elimina cualquier carácter que no sea dígito
+    value = value.replace(/\D/g, '');
+
+    // Formatear con separadores de miles
+    value = new Intl.NumberFormat('es-ES').format(value);
+
+    // Actualiza el valor del campo de entrada
+    e.target.value = value ? '' + value : '';
+});

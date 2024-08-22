@@ -2,29 +2,36 @@
     {
         "name": "Mantencion completa",
         "descripcion": "Mantencion completa del vehiculo",
-        "tiempo": "2",
-        "valor": "50000",
+        "tiempo": "2 Dias",
+        "valor": "50.000",
         "id": "34318"
     },
     {
         "name": "Cambio de aceite",
         "descripcion": "Cambio de aceite completo",
-        "tiempo": "1",
-        "valor": "25000",
+        "tiempo": "1 Dia",
+        "valor": "25.000",
         "id": "40730"
     },
     {
         "name": "Cambio de neumatico",
         "descripcion": "Cambio de neumatico a eleccion",
-        "tiempo": "1",
-        "valor": "20000",
+        "tiempo": "1 Dia",
+        "valor": "20.000",
         "id": "38940"
     },
     {
         "name": "Scanner",
         "descripcion": "Realizacion de Scanner a vehiculo",
-        "tiempo": "1",
-        "valor": "25000",
+        "tiempo": "1 Dia",
+        "valor": "25.000",
         "id": "77797"
+    },
+    {
+        "name": "Lavado de vehiculo",
+        "descripcion": "Lavado completo del vehiculo",
+        "tiempo": "1 Dia",
+        "valor": "25.000",
+        "id": "36582"
     }
 ]

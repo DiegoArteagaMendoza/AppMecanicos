@@ -4,14 +4,64 @@
     /* Fondo de la página con gradiente suave */
     body {
         font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #ff7f7f, #d17b8d, #6a1b9a);
+        background: linear-gradient(135deg, #ff7f7f, #fff, #6a1b9a);
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 100vh; /* Asegura que el body ocupa al menos el alto de la vista */
-        /* overflow: hidden; Oculta cualquier desbordamiento para evitar barras de desplazamiento */
+        min-height: 100vh; 
+    }
+    html {
+        height:100%;
+    }
+
+    .bg {
+        animation: slide 3s ease-in-out infinite alternate;
+        background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+        bottom: 0;
+        left: -50%;
+        opacity: .5;
+        position: fixed;
+        right: -50%;
+        top: 0;
+        z-index: -1;
+    }
+
+    .bg2 {
+        animation-direction: alternate-reverse;
+        animation-duration: 4s;
+    }
+
+    .bg3 {
+        animation-duration: 5s;
+    }
+
+    .content {
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: .25em;
+        box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+        box-sizing: border-box;
+        left: 50%;
+        padding: 10vmin;
+        position: fixed;
+        text-align: center;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1 {
+        font-family: monospace;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(-25%);
+        }
+
+        100% {
+            transform: translateX(25%);
+        }
     }
 
     /* Estilo para el contenedor del formulario */
@@ -38,11 +88,9 @@
         display: flex;
         justify-content: left; /* Distribuye los elementos de manera uniforme */
         align-items: center;
-        background-color: #ffffff; /* Fondo blanco para mantener la consistencia con el formulario */
+        /* background-color: #ffffff; Fondo blanco para mantener la consistencia con el formulario */
         padding: 10px 20px; /* Añade un poco de espacio interno */
         gap: 20px; /* Espacio entre los enlaces de la navbar */
-        /* border-radius: 10px; Bordes redondeados */
-        /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); Sombra suave para un efecto flotante */
         width: 100%; /* Ocupa todo el ancho disponible */
         box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
     }
@@ -50,12 +98,12 @@
     /* Estilo para los enlaces de la navbar */
     .navbar a {
         text-decoration: none;
-        color: #4a1f4d; /* Color morado oscuro para mantener la paleta de colores */
+        color: #000; /* Color morado oscuro para mantener la paleta de colores */
         font-size: 18px;
         padding: 10px 15px;
         border-radius: 5px;
-        background-color: rgba(255, 255, 255, 1); /* Fondo semitransparente */
-        border: 1px solid #d17b8d; /* Borde en rosa claro para la consistencia con el formulario */
+        /* background-color: rgba(255, 255, 255, 1); Fondo semitransparente */
+        /* border: 1px solid #fff; Borde en rosa claro para la consistencia con el formulario */
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
@@ -67,7 +115,7 @@
 
     /* Estilo para el hover en los enlaces de la navbar */
     .navbar a:hover {
-        background-color: #f4f4f4; /* Fondo en gris claro al pasar el mouse */
+        /* background-color: #f4f4f4; Fondo en gris claro al pasar el mouse */
         color: #000; /* Texto en negro al pasar el mouse */
     }
 
@@ -85,7 +133,7 @@
         font-family: 'Arial', sans-serif;
         font-weight: bold;
         font-size: 24px;
-        color: #4a1f4d; /* Color morado oscuro */
+        color: #000; /* Color morado oscuro */
     }
 
     /* Estilo para las letras del logo */
@@ -97,14 +145,14 @@
 
     /* Letra M */
     .m {
-        background: linear-gradient(to bottom right, #d17b8d, #ff7f7f); /* Gradiente de rosa a rojo */
+        background: linear-gradient(to bottom right, #000, #000); /* Gradiente de rosa a rojo */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     /* Letra C */
     .c {
-        background: linear-gradient(to bottom right, #ff7f7f, #d17b8d); /* Gradiente de rojo a rosa */
+        background: linear-gradient(to bottom right, #000, #000); /* Gradiente de rojo a rosa */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -115,11 +163,10 @@
         color: #000; /* Texto en negro al pasar el mouse */
     }
 
-
 /* Formulario de ingreso de cliente */
 
     .tituloform {
-        color: #4a1f4d;
+        color: #000;
         font-size: x-large;
         margin-bottom: 0;
     }
@@ -147,7 +194,7 @@
     /* Estilo para las etiquetas en la primera columna */
     .formularioCliente .columna1 label {
         font-weight: bold;
-        color: #4a1f4d; /* Color morado oscuro */
+        color: #000; /* Color morado oscuro */
         margin-bottom: 5px;
         display: block; /* Asegura que las etiquetas ocupen toda la línea */
     }
@@ -161,8 +208,8 @@
     .formularioCliente .columna1 textarea {
         padding: 10px;
         border-radius: 5px;
-        background-color: #fef5f5; /* Fondo muy suave en rosa pálido */
-        border: 1px solid #d17b8d; /* Borde en rosa claro */
+        background-color: #fff; /* Fondo muy suave en rosa pálido */
+        border: 1px solid #000; /* Borde en rosa claro */
         color: #333; /* Texto en color gris oscuro para buena legibilidad */
         transition: border-color 0.3s ease-in-out;
         width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
@@ -175,13 +222,13 @@
     .formularioCliente .columna1 input[type="date"]:focus,
     .formularioCliente .columna1 select:focus,
     .formularioCliente .columna1 textarea:focus {
-        border-color: #ff7f7f; /* Borde en rojo suave al enfocar */
+        border-color: #fff; /* Borde en rojo suave al enfocar */
     }
 
     /* Estilo para las etiquetas en la segunda columna */
     .formularioCliente .columna2 label {
         font-weight: bold;
-        color: #4a1f4d; /* Color morado oscuro */
+        color: #000; /* Color morado oscuro */
         margin-bottom: 5px;
         display: block; /* Asegura que las etiquetas ocupen toda la línea */
     }
@@ -196,8 +243,8 @@
     .formularioCliente .columna2 img {
         padding: 10px;
         border-radius: 5px;
-        background-color: #fef5f5; /* Fondo muy suave en rosa pálido */
-        border: 1px solid #d17b8d; /* Borde en rosa claro */
+        background-color: #fff; /* Fondo muy suave en rosa pálido */
+        border: 1px solid #000; /* Borde en rosa claro */
         color: #333; /* Texto en color gris oscuro para buena legibilidad */
         transition: border-color 0.3s ease-in-out;
         width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
@@ -211,16 +258,17 @@
     .formularioCliente .columna2 select:focus,
     .formularioCliente .columna2 textarea:focus {
         border-color: #ff7f7f; /* Borde en rojo suave al enfocar */
+        
     }
 
     /* Estilo para el botón */
     .botonIngreso {
         grid-column: span 2; /* Ocupa las dos columnas */
         padding: 10px;
-        border: none;
+        border: solid 1px #000;
         border-radius: 5px;
-        background-color: #d17b8d; /* Fondo en rosa suave */
-        color: white;
+        background-color: #000; /* Fondo en rosa suave */
+        color: #fff;
         font-size: 16px;
         cursor: pointer;
         text-align: center;
@@ -229,7 +277,47 @@
     }
 
     .botonIngreso:hover {
-        background-color: #ff7f7f; /* Fondo en rojo suave al pasar el mouse */
+        background-color: #fff;
+        color: #000;
+    }
+
+    .botones-contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Asegúrate de que ocupe toda la altura de la pantalla */
+        flex-direction: row; /* Coloca los botones en unafila */
+        gap: 25px;
+    }
+    
+    .botonIngreso2 {
+        padding: 20px 40px; /* Aumenta el tamaño de los botones */
+        border: solid 1px #000;
+        border-radius: 5px;
+        background-color: #7bafd1;
+        color: #fff;
+        font-size: 20px; /* Aumenta el tamaño del texto */
+        cursor: pointer;
+        text-align: center;
+        margin: 0 0; /* Espaciado entre los botones */
+        transition: background-color 0.3s ease;
+    }
+    
+    .botonIngreso2:hover {
+        color: #000;
+        background-color: #50e67d;
+    }
+    
+    .columna2b .campo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .mecanicoFoto {
+        max-width: 100%;
+        height: auto;
     }
 
 /* Estilo para la tabla clientes */
@@ -246,7 +334,7 @@
 
     /* Estilo para los encabezados de la tabla */
     .table thead {
-        background-color: #4a1f4d; /* Color morado oscuro para los encabezados */
+        background-color: #000; /* Color morado oscuro para los encabezados */
         color: #fff; /* Texto blanco para contraste */
     }
 
@@ -262,7 +350,7 @@
 
     .table tbody td {
         padding: 10px 15px; /* Espacio interno en las celdas */
-        border: 1px solid #d17b8d; /* Borde en rosa claro */
+        border: 1px solid #fff; /* Borde en rosa claro */
         color: #fff; /* Texto en gris oscuro para buena legibilidad */
     }
 
@@ -281,7 +369,7 @@
         padding: 8px 12px; /* Espacio interno en el botón */
         border: none;
         border-radius: 5px;
-        background-color: #d17b8d; /* Fondo en rosa suave */
+        background-color: #000; /* Fondo en rosa suave */
         color: white;
         font-size: 14px;
         cursor: pointer;
@@ -291,14 +379,15 @@
 
     /* Estilo para el hover en los botones */
     .btn-primary:hover {
-        background-color: #ff7f7f; /* Fondo en rojo suave al pasar el mouse */
+        background-color: #fff;
+        color: #000;
     }
 
 /* Modal */
 
     .modal-body .table th,
     .modal-body .table td strong {
-        color: #4a1f4d; /* Color morado oscuro */
+        color: #000; /* Color morado oscuro */
     }
 
     .modal-body .table {

@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-import json, os, random
+import os, random
+from . import guardado, cargado
 
 def init_routes(app):
 
@@ -10,12 +11,12 @@ def init_routes(app):
 
     @app.route('/Servicios')
     def servicios():
-        clients, vehiculos, servicios, imagenes = cargar_datos()
+        clients, vehiculos, servicios, imagenes, _ = cargado.cargar_datos()
         return render_template("servicios.html", servicios=servicios, imagenes = imagenes)
 
     @app.route('/Trabajos')
     def trabajos():
-        clients, vehiculos, servicios, imagenes = cargar_datos()
+        clients, vehiculos, servicios, imagenes, _ = cargado.cargar_datos()
         return render_template("trabajos.html", clients=clients, vehiculos=vehiculos, servicios = servicios)
 
     @app.route('/AgregarTrabajo')
@@ -24,26 +25,29 @@ def init_routes(app):
 
     @app.route('/ClienteExistente/AgergarTrabajo', methods=['GET', 'POST'])
     def formAddTrabajoCE():
-        clients, _, servicios, _ = cargar_datos()
+        clients, _, servicios, _, clientsUnico = cargado.cargar_datos()
         rut = None
         
         if request.method == 'POST':
             rut = request.form.get('rut')
-            return render_template("addtrabajoCE.html", clients=clients, servicios=servicios, rut=rut)
+            return render_template("addtrabajoCE.html", clients=clients, servicios=servicios, rut=rut, clientsUnico = clientsUnico)
         
         if request.method == 'GET':
-            return render_template("addtrabajoCE.html", clients=clients, servicios=servicios, rut=rut)
+            return render_template("addtrabajoCE.html", clients=clients, servicios=servicios, rut=rut, clientsUnico = clientsUnico)
 
 
     
     @app.route('/ClienteNuevo/AgregarTrabajo')
     def formAddTrabajo():
-        _, _, servicios, _ = cargar_datos()
+        _, _, servicios, _, _ = cargado.cargar_datos()
         return render_template("addtrabajo.html", servicios = servicios)
 
     @app.route('/addTrabajoCE', methods=['POST'])
     def addTrabajoCE():
         id_trabajo = random.random()
+
+        rutCliente = request.form['rut']
+
         client = {
             "name": request.form['name'],
             "rut": request.form['rut'],
@@ -65,13 +69,16 @@ def init_routes(app):
             "idTrabajo": id_trabajo
         }
 
-        guardar_datos_cliente_vehiculo(client, vehiculo)
+        guardado.guardar_datos_cliente_vehiculo(client, vehiculo, rutCliente)
         return redirect(url_for('trabajos'))
 
     @app.route('/addTrabajo', methods=['POST'])
     def addTrabajo():
         id_cliente = random.random()
         id_trabajo = random.random()
+
+        rutCliente = request.form['rut']
+
         client = {
             "name": request.form['name'],
             "rut": request.form['rut'],
@@ -93,7 +100,7 @@ def init_routes(app):
             "idTrabajo": id_trabajo
         }
 
-        guardar_datos_cliente_vehiculo(client, vehiculo)
+        guardado.guardar_datos_cliente_vehiculo(client, vehiculo, rutCliente)
         return redirect(url_for('trabajos'))
     
     @app.route('/admin/Agregarservicio')
@@ -135,62 +142,121 @@ def init_routes(app):
                 "id": id_servicio
             }
 
-            guardar_servicio(servicio, imagen)
+            guardado.guardar_servicio(servicio, imagen)
             return redirect(url_for('servicios'))
         
         return redirect(request.url)
 
-    def cargar_datos():
-        if os.path.exists('clients.json'):
-            with open('clients.json', 'r') as file:
-                clients = json.load(file)
-        else:
-            clients = []
-
-        if os.path.exists('vehiculos.json'):
-            with open('vehiculos.json', 'r') as file:
-                vehiculos = json.load(file)
-        else:
-            vehiculos = []
-
-        if os.path.exists('servicios.json'):
-            with open('servicios.json', 'r') as file:
-                servicios = json.load(file)
-        else:
-            servicios = []
-
-        if os.path.exists('imagenes.json'):
-            with open('imagenes.json', 'r') as file:
-                imagenes = json.load(file)
-        else:
-            imagenes = []
-
-        return clients, vehiculos, servicios, imagenes
-
-    def guardar_datos_cliente_vehiculo(client, vehiculo):
-        clients, vehiculos, _, _ = cargar_datos()
-
-        clients.append(client)
-        vehiculos.append(vehiculo)
-
-        with open('clients.json', 'w') as file:
-            json.dump(clients, file, indent=4)
-
-        with open('vehiculos.json', 'w') as file:
-            json.dump(vehiculos, file, indent=4)
-
-    def guardar_servicio(servicio, imagen):
-        _, _, servicios, imagenes = cargar_datos()
-        
-        servicios.append(servicio)
-        imagenes.append(imagen)
-
-        with open('servicios.json', 'w') as file:
-            json.dump(servicios, file, indent=4)
-        
-        with open('imagenes.json', 'w') as file:
-            json.dump(imagenes, file, indent=4)
-
     def allowed_file(filename):
         return '.' in filename and \
             filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # def cargado.cargar_datos():
+    #     if os.path.exists('clients.json'):
+    #         with open('clients.json', 'r') as file:
+    #             clients = json.load(file)
+    #     else:
+    #         clients = []
+
+    #     if os.path.exists('clientesUnico.json'):
+    #         with open('clientesUnico.json', 'r') as file:
+    #             clientsUnico = json.load(file)
+    #     else:
+    #         clientsUnico = []
+
+    #     if os.path.exists('vehiculos.json'):
+    #         with open('vehiculos.json', 'r') as file:
+    #             vehiculos = json.load(file)
+    #     else:
+    #         vehiculos = []
+
+    #     if os.path.exists('servicios.json'):
+    #         with open('servicios.json', 'r') as file:
+    #             servicios = json.load(file)
+    #     else:
+    #         servicios = []
+
+    #     if os.path.exists('imagenes.json'):
+    #         with open('imagenes.json', 'r') as file:
+    #             imagenes = json.load(file)
+    #     else:
+    #         imagenes = []
+
+    #     return clients, vehiculos, servicios, imagenes, clientsUnico
+
+    # def guardado.guardar_datos_cliente_vehiculo(client, vehiculo, rut):
+    #     clients, vehiculos, _, _, clientsUnico = cargado.cargar_datos()
+
+    #     print(rut)
+
+    #     clients.append(client)
+    #     vehiculos.append(vehiculo)
+
+    #     if rut:
+    #         if buscarCliente(rut):
+    #             print(" ")
+    #         else:
+    #             client_sin_idTrabajo = {key: value for key, value in client.items() if key != 'idTrabajo'}
+    #             clientsUnico.append(client_sin_idTrabajo)
+    #             with open('clientesUnico.json', 'w') as file:
+    #                 json.dump(clientsUnico, file, indent=4)
+
+    #     with open('clients.json', 'w') as file:
+    #         json.dump(clients, file, indent=4)
+
+    #     with open('vehiculos.json', 'w') as file:
+    #         json.dump(vehiculos, file, indent=4)
+
+    # def guardado.guardar_servicio(servicio, imagen):
+    #     _, _, servicios, imagenes, _ = cargado.cargar_datos()
+        
+    #     servicios.append(servicio)
+    #     imagenes.append(imagen)
+
+    #     with open('servicios.json', 'w') as file:
+    #         json.dump(servicios, file, indent=4)
+        
+    #     with open('imagenes.json', 'w') as file:
+    #         json.dump(imagenes, file, indent=4)
+                
+
+
+    # def buscarCliente(rut):
+    #     if not os.path.exists('clientesUnico.json'):
+    #         print("El archivo clientesUnico.json no existe")
+    #         return False
+        
+    #     with open('clientesUnico.json', 'r') as file:
+    #         clientesUnico = json.load(file)
+        
+    #     for cliente in clientesUnico:
+    #         if rut == cliente['rut']:
+    #             print(f"Cliente encontrado: {rut}")
+    #             return True
+        
+    #     print("No se encontró al cliente")
+    #     return False
