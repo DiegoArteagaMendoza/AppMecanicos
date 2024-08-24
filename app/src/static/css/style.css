@@ -4,7 +4,6 @@
     /* Fondo de la página con gradiente suave */
     body {
         font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #ff7f7f, #fff, #6a1b9a);
         margin: 0;
         padding: 0;
         display: flex;
@@ -18,7 +17,9 @@
 
     .bg {
         animation: slide 3s ease-in-out infinite alternate;
-        background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+        /* background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%); */
+        /* background-image: linear-gradient(-60deg, #ffd550 50%, #ff6d50 50%); */
+        background-image: linear-gradient(-60deg, #50a9ff 50%, #6250ff 50%);
         bottom: 0;
         left: -50%;
         opacity: .5;
@@ -98,12 +99,10 @@
     /* Estilo para los enlaces de la navbar */
     .navbar a {
         text-decoration: none;
-        color: #000; /* Color morado oscuro para mantener la paleta de colores */
+        color: #fff;
         font-size: 18px;
         padding: 10px 15px;
         border-radius: 5px;
-        /* background-color: rgba(255, 255, 255, 1); Fondo semitransparente */
-        /* border: 1px solid #fff; Borde en rosa claro para la consistencia con el formulario */
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
@@ -115,7 +114,6 @@
 
     /* Estilo para el hover en los enlaces de la navbar */
     .navbar a:hover {
-        /* background-color: #f4f4f4; Fondo en gris claro al pasar el mouse */
         color: #000; /* Texto en negro al pasar el mouse */
     }
 
@@ -145,17 +143,21 @@
 
     /* Letra M */
     .m {
-        background: linear-gradient(to bottom right, #000, #000); /* Gradiente de rosa a rojo */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background: linear-gradient(to bottom right, #000, #000); /* Gradiente de color */
+        -webkit-background-clip: text; /* Prefijo para WebKit/Blink (Chrome, Safari, Opera) */
+        -webkit-text-fill-color: transparent; /* Prefijo para WebKit/Blink */
+        background-clip: text; /* Propiedad estándar */
     }
+    
 
     /* Letra C */
     .c {
-        background: linear-gradient(to bottom right, #000, #000); /* Gradiente de rojo a rosa */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background: linear-gradient(to bottom right, #000, #000); /* Gradiente de negro a negro (puedes cambiar los colores) */
+        -webkit-background-clip: text; /* Prefijo para WebKit/Blink (Chrome, Safari, Opera) */
+        -webkit-text-fill-color: transparent; /* Prefijo para WebKit/Blink */
+        background-clip: text; /* Propiedad estándar */
     }
+    
 
     /* Estilo para el hover en los enlaces de la navbar */
     .navbar a:hover {

@@ -81,3 +81,30 @@ document.getElementById('valor').addEventListener('input', function (e) {
     // Actualiza el valor del campo de entrada
     e.target.value = value ? '' + value : '';
 });
+
+
+document.getElementById('deleteJobBtn').addEventListener('click', function() {
+    const client = JSON.parse(this.getAttribute('data-client'));
+    const vehiculos = JSON.parse(this.getAttribute('data-vehiculos'));
+    const servicio = JSON.parse(this.getAttribute('data-servicio'));
+
+    fetch('/eliminarTrabajo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            client: client,
+            vehiculos: vehiculos,
+            servicio: servicio
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Manejar la respuesta del servidor si es necesario
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
