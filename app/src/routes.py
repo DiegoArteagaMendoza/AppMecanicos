@@ -1,13 +1,30 @@
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import os, random
-from . import guardado, cargado
+from . import guardado, cargado, vencimiento
 
 def init_routes(app):
 
     @app.route('/')
     def home():
-        return render_template("index.html")
+        clients, vehiculos, servicios, imagenes, clientsUnico = cargado.cargar_datos()
+        clientesValidar = []
+        
+        for cliente in clients:
+            resultado_vencimiento = vencimiento.verVencimiento(cliente['rut'], cliente['idTrabajo'])
+            dias_atraso = resultado_vencimiento["dias_atraso"]
+            dias_restantes = resultado_vencimiento["dias_restantes"]
+            
+            if dias_atraso >= 0 or dias_restantes is not None:
+                clientesValidar.append({
+                    'rut': cliente['rut'],
+                    'idCliente': cliente['idCliente'],
+                    'idTrabajo': cliente['idTrabajo'],
+                    'dias_atraso': dias_atraso,
+                    'dias_restantes': dias_restantes
+                })
+        
+        return render_template("index.html", clients=clients, clientsUnico=clientsUnico, vehiculos=vehiculos, clientesVencidos=clientesValidar)
 
     @app.route('/Servicios')
     def servicios():
@@ -131,6 +148,7 @@ def init_routes(app):
                 "name": request.form['name'],
                 "descripcion": request.form['descripcion'],
                 "tiempo": request.form['tiempo'],
+                "semanaOdia": request.form['longitud'],
                 "valor": request.form['valor'],
                 "id": id_servicio
             }

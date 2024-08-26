@@ -11,7 +11,7 @@
                     <h2 class="card-title">{{ servicio.name }}</h2>
                     <p class="card-description">{{ servicio.descripcion }}</p>
                     <div class="card-footer">
-                        <span class="card-time">{{ servicio.tiempo }}</span>
+                        <span class="card-time">{{ servicio.tiempo }} {{ servicio.semanaOdia }}</span>
                         <span class="card-value">${{ servicio.valor }}</span>
                     </div>
                     {% for imagen in imagenes %}

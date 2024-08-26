@@ -8,5 +8,25 @@
         "motivo": "Mantencion",
         "idCliente": 0.8144609617902545,
         "idTrabajo": 0.05611034074921595
+    },
+    {
+        "type": "auto",
+        "marca": "toyota",
+        "patente": "asdfadf",
+        "modelo": "supra",
+        "OpcionesTrabajo": "Lavado de vehiculo",
+        "motivo": "asdfasdf",
+        "idCliente": 0.5563729509049217,
+        "idTrabajo": 0.9117417499731685
+    },
+    {
+        "type": "auto",
+        "marca": "toyota",
+        "patente": "rk2120",
+        "modelo": "supra",
+        "OpcionesTrabajo": "Lavado de vehiculo",
+        "motivo": "adfadfasdf",
+        "idCliente": "0.5563729509049217",
+        "idTrabajo": 0.9098157677801872
     }
 ]

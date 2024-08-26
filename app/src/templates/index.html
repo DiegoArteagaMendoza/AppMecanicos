@@ -2,5 +2,44 @@
 
 {% block content %}
 
+<h4 class="tituloform">Clientes por vencer</h4>
+
+<div class="container">
+    <div class="table-container">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nombre Cliente</th>
+                    <th>Telefono</th>
+                    <!-- <th>Id trabajo</th> -->
+                    <th>Días de atraso</th>
+                    <th>Días restantes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for clienteVencido in clientesVencidos %}
+                    <tr>
+                        {% for client in clients %}
+                            {% if clienteVencido['rut'] == client.rut %}
+                                <td>{{ client.name }}</td>
+                                <td>{{ client.phone }}</td>
+                                {% if clienteVencido['dias_atraso'] <= 1 %}
+                                    <td style="color: red;">{{ clienteVencido['dias_atraso'] }}</td>
+                                    <td style="color: red;">{{ clienteVencido['dias_restantes'] }}</td>
+                                {% endif %}
+                                {% if clienteVencido['dias_atraso'] > 1 %}
+                                    <td style="color: greenyellow;">{{ clienteVencido['dias_atraso'] }}</td>
+                                    <td style="color: greenyellow;">{{ clienteVencido['dias_restantes'] }}</td>   
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 
 {% endblock %}
